@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Add smooth page transitions */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Add smooth slide animation for mobile menu */
+.slide-enter {
+  transform: translate(-100%);
+}
+
+.slide-enter-active {
+  transform: translate(0);
+  transition: transform 300ms ease-in-out;
+}
+
+.slide-exit {
+  transform: translate(0);
+}
+
+.slide-exit-active {
+  transform: translate(-100%);
+  transition: transform 300ms ease-in-out;
+}
+
+/* Admin crown animations */
+@keyframes pulse-gold {
+  0%, 100% {
+    filter: drop-shadow(0 0 2px rgba(234, 179, 8, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 6px rgba(234, 179, 8, 0.8));
+  }
+}
+
+@keyframes ping-slow {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse-gold {
+  animation: pulse-gold 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-ping-slow {
+  animation: ping-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Teacher shield animations */
+@keyframes pulse-blue {
+  0%, 100% {
+    filter: drop-shadow(0 0 2px rgba(59, 130, 246, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.7));
+  }
+}
+
+@keyframes ripple-slow {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+}
+
+.animate-pulse-blue {
+  animation: pulse-blue 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-ripple-slow {
+  animation: ripple-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Todo animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideOut {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(100%); opacity: 0; }
+}
+
+@keyframes checkmark {
+  0% { transform: scale(0); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.todo-item-new {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.todo-item-delete {
+  animation: slideOut 0.4s ease-out;
+}
+
+.todo-checkbox-checked {
+  animation: checkmark 0.2s ease-out;
+}
+
+/* Touch-friendly styles */
+@media (max-width: 768px) {
+  .todo-item {
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  
+  .todo-actions button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .todo-checkbox {
+    min-height: 24px;
+    min-width: 24px;
+  }
+}
